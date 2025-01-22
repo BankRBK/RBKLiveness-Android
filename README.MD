@@ -21,27 +21,33 @@ The **Liveness Library** provides an easy-to-use solution for integrating livene
 To add the library to your project, include the following dependencies in your `build.gradle` file (replace `<version>` with the latest version):
 
 ```kotlin
-// Compose Permisisons
-val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
-implementation(composeBom)
-implementation("androidx.compose.material3:material3")
-implementation("androidx.compose.ui:ui-tooling-preview")
-implementation("androidx.navigation:navigation-compose:2.8.4")
-implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0"
-debugImplementation("androidx.compose.ui:ui-tooling")
+repositories {
+  maven { url = uri("https://maven.pkg.github.com/BankRBK/RBKLiveness-Android") }
+}
 
-// MLKit
-implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0"
-
-// CameraX 
-val camerax_version = "1.4.0"
-implementation("androidx.camera:camera-core:${camerax_version}")
-implementation("androidx.camera:camera-camera2:${camerax_version}")
-implementation("androidx.camera:camera-lifecycle:${camerax_version}")
-implementation("androidx.camera:camera-view:${camerax_version}")
-
-// Liveness
-implementation("kz.rbk.liveness:liveness:<version>")
+dependencies {
+  // Compose Permisisons
+  val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
+  implementation(composeBom)
+  implementation("androidx.compose.material3:material3")
+  implementation("androidx.compose.ui:ui-tooling-preview")
+  implementation("androidx.navigation:navigation-compose:2.8.4")
+  implementation("androidx.constraintlayout:constraintlayout-compose:1.1.0"
+  debugImplementation("androidx.compose.ui:ui-tooling")
+  
+  // MLKit
+  implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0"
+  
+  // CameraX 
+  val camerax_version = "1.4.0"
+  implementation("androidx.camera:camera-core:${camerax_version}")
+  implementation("androidx.camera:camera-camera2:${camerax_version}")
+  implementation("androidx.camera:camera-lifecycle:${camerax_version}")
+  implementation("androidx.camera:camera-view:${camerax_version}")
+  
+  // Liveness
+  implementation("kz.rbk.liveness:liveness:<version>")
+}
 ```
 
 ## For Users of Jetpack Compose
