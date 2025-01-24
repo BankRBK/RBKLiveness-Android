@@ -19,7 +19,7 @@ The **Liveness Library** provides an easy-to-use solution for integrating livene
 ## Installation
 
 To add the library to your project
-1. Get a Github personal access token (classic) with at least `read:packages` scope. It is required to install Liveness packages
+1. Get a Github personal access token (classic) with at least `read:packages` scope. It is required to install Liveness packages. Replace inside `credentials`
 2. Include the following dependencies in your `build.gradle` files (replace `<version>` with the latest version):
 
 ```kotlin
