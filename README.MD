@@ -34,6 +34,9 @@ repositories {
 }
 
 dependencies {
+  // Accompanist Permissions
+  implementation("com.google.accompanist:accompanist-permissions:0.36.0")
+
   // Compose Permisisons
   val composeBom = platform("androidx.compose:compose-bom:2024.11.00")
   implementation(composeBom)
@@ -44,7 +47,7 @@ dependencies {
   debugImplementation("androidx.compose.ui:ui-tooling")
   
   // MLKit
-  implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0"
+  implementation("com.google.android.gms:play-services-mlkit-face-detection:17.1.0")
   
   // CameraX 
   val camerax_version = "1.4.0"
@@ -150,14 +153,14 @@ Example:
 
 ```kotlin
 val lightLivenessColors = LivenessColors(
-  bgColor = Color.Black,
-  titleColor = Color.White,
-  descriptionColor = Color.Gray,
-  iconColor = Color.White,
-  torchColor = Color.Yellow,
-  torchBackgroundColor = Color.DarkGray,
-  progressColor = Color.Green,
-  progressTrackColor = Color.LightGray
+  bgColor = Color.Black.toArgb(),
+  titleColor = Color.White.toArgb(),
+  descriptionColor = Color.Gray.toArgb(),
+  iconColor = Color.White.toArgb(),
+  torchColor = Color.Yellow.toArgb(),
+  torchBackgroundColor = Color.DarkGray.toArgb(),
+  progressColor = Color.Green.toArgb(),
+  progressTrackColor = Color.LightGray.toArgb()
 )
 ```
 ## Example Usage
