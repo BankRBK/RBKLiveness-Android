@@ -4,6 +4,7 @@ The **Liveness Library** provides an easy-to-use solution for integrating livene
 
 1. [For Users of Jetpack Compose](#for-users-of-jetpack-compose)
 2. [For Users of Fragments](#for-users-of-fragments)
+3. [Troubleshooting](#troubleshooting)
 ---
 
 ## Features
@@ -19,10 +20,12 @@ The **Liveness Library** provides an easy-to-use solution for integrating livene
 ## Installation
 
 To add the library to your project
-1. Get a Github personal access token (classic) with at least `read:packages` scope. It is required to install Liveness packages. Replace inside `credentials`
+1. Get a Github personal access token (classic) with at least `read:packages` scope. It is required to install Liveness packages. Replace inside `credentials`.
+2. Set min SDK version >= 24 as we support starting from this version.
 2. Include the following dependencies in your `build.gradle` files (replace `<version>` with the latest version):
 
 ```kotlin
+
 repositories {
   maven {
       url = uri("https://maven.pkg.github.com/BankRBK/RBKLiveness-Android")
@@ -31,6 +34,21 @@ repositories {
           password = "GITHUB_TOKEN"
       }
   }
+}
+
+android {
+    defaultConfig {
+        minSdk = 24
+    }
+
+    buildFeatures {
+        compose = true
+    }
+    // optional:
+    // if you use kotlin < 2.0, check version here https://developer.android.com/jetpack/androidx/releases/compose-kotlin
+    composeOptions {
+        kotlinCompilerExtensionVersion = "compatibleKotlinVersion"
+    }
 }
 
 dependencies {
@@ -60,6 +78,8 @@ dependencies {
   implementation("kz.rbk.liveness:liveness:<version>")
 }
 ```
+
+
 
 ## For Users of Jetpack Compose
 ### Basic Setup
@@ -290,3 +310,7 @@ class MyLivenessFragment : LivenessFragment() {
   }
 }
 ```
+
+## Troubleshooting
+- Check compose is set up correctly (https://developer.android.com/develop/ui/compose/setup)
+- Check any permissions needed
